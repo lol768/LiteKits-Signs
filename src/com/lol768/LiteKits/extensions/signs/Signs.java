@@ -66,6 +66,7 @@ public class Signs extends JavaPlugin implements Listener {
                     return;
                 } else {
                     lk.supplyKitToPlayer(getConfig().getString("signs." + locKey + ".kit"), e.getPlayer());
+                    e.getPlayer().sendMessage(lk.getBrand(true) + ChatColor.GREEN + "Debug: gievn");
                 }
             }
         }
@@ -85,7 +86,7 @@ public class Signs extends JavaPlugin implements Listener {
                     
                     //Save sign
                     String locKey = e.getBlock().getX() + "-" + e.getBlock().getY() + "-" + e.getBlock().getZ() + "-" + e.getBlock().getWorld().getName();
-                    
+                    e.getPlayer().sendMessage(lk.getBrand(true) + ChatColor.GREEN + "Created kit sign successfully.");
                     getConfig().set("signs." + locKey + ".kit", e.getLine(1));
                     
                 }

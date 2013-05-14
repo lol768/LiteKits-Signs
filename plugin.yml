@@ -5,4 +5,4 @@ author: lol768
 load: STARTUP
 main: com.lol768.LiteKits.extensions.signs.Signs
 database: false
-depend: LiteKits
+depend: [LiteKits]

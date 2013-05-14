@@ -3,6 +3,7 @@ package com.lol768.LiteKits.extensions.signs;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.SignChangeEvent;
@@ -34,6 +35,7 @@ public class Signs extends JavaPlugin implements Listener {
         saveConfig();
     }
     
+    @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         if ( e.getBlock().getType() == Material.SIGN_POST || e.getBlock().getType() == Material.WALL_SIGN) {
             String locKey = e.getBlock().getX() + "-" + e.getBlock().getY() + "-" + e.getBlock().getZ() + "-" + e.getBlock().getWorld().getName();
@@ -49,6 +51,7 @@ public class Signs extends JavaPlugin implements Listener {
         }
     }
     
+    @EventHandler
     public void onSignUse(PlayerInteractEvent e) {
         if ( e.getClickedBlock().getType() == Material.SIGN_POST || e.getClickedBlock().getType() == Material.WALL_SIGN) {
             String locKey = e.getClickedBlock().getX() + "-" + e.getClickedBlock().getY() + "-" + e.getClickedBlock().getZ() + "-" + e.getClickedBlock().getWorld().getName();
@@ -68,7 +71,7 @@ public class Signs extends JavaPlugin implements Listener {
         }
     }
     
-    
+    @EventHandler
     public void onSignCreate(SignChangeEvent e) {
         if (e.getLine(0) != null && e.getLine(0).equals(ChatColor.stripColor(lk.getBrand(false)))) {
             if (!e.getPlayer().hasPermission("LiteKits.extension.signs.create")) {

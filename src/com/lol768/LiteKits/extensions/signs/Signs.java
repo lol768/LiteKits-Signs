@@ -65,8 +65,8 @@ public class Signs extends JavaPlugin implements Listener {
                     e.getPlayer().sendMessage(lk.getBrand(true) + ChatColor.RED + "Kit does not exist.");
                     return;
                 } else {
+                    e.getPlayer().getInventory().clear();
                     lk.supplyKitToPlayer(getConfig().getString("signs." + locKey + ".kit"), e.getPlayer());
-                    e.getPlayer().sendMessage(lk.getBrand(true) + ChatColor.GREEN + "Debug: gievn");
                 }
             }
         }

@@ -1,0 +1,8 @@
+name: LK-Signs
+version: 1.1
+description: A LiteKits extension that allows for clickable kit signs.
+author: lol768
+load: STARTUP
+main: com.lol768.LiteKits.extensions.signs.Signs
+database: false
+depend: LiteKits

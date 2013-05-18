@@ -23,11 +23,11 @@ public class Signs extends JavaPlugin implements Listener {
                 getLogger().severe("LiteKits version is too old to use this extension. Disabling self...");
                 setEnabled(false);
             }
+            Bukkit.getPluginManager().registerEvents(this, this);
         } else {
             getLogger().severe("Couldn't find LiteKits. Disabling self...");
             setEnabled(false);
         }
-        getServer().getPluginManager().registerEvents(this, this);
     }
     
     public void onDisable() {

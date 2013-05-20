@@ -37,7 +37,7 @@ public class Signs extends JavaPlugin implements Listener {
     
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
-        if ( e.getBlock().getType() == Material.SIGN_POST || e.getBlock().getType() == Material.WALL_SIGN) {
+        if ( e.getBlock() != null && e.getBlock().getType() == Material.SIGN_POST || e.getBlock().getType() == Material.WALL_SIGN) {
             String locKey = e.getBlock().getX() + "-" + e.getBlock().getY() + "-" + e.getBlock().getZ() + "-" + e.getBlock().getWorld().getName();
             if (getConfig().contains("signs." + locKey)) {
                 if (!e.getPlayer().hasPermission("LiteKits.extension.signs.delete")) {

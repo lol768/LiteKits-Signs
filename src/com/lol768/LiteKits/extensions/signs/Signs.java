@@ -53,7 +53,7 @@ public class Signs extends JavaPlugin implements Listener {
     
     @EventHandler
     public void onSignUse(PlayerInteractEvent e) {
-        if ( e.getClickedBlock().getType() == Material.SIGN_POST || e.getClickedBlock().getType() == Material.WALL_SIGN) {
+        if ( e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.SIGN_POST || e.getClickedBlock().getType() == Material.WALL_SIGN) {
             String locKey = e.getClickedBlock().getX() + "-" + e.getClickedBlock().getY() + "-" + e.getClickedBlock().getZ() + "-" + e.getClickedBlock().getWorld().getName();
             if (getConfig().contains("signs." + locKey)) {
                 if (!e.getPlayer().hasPermission("LiteKits.extension.signs.use")) {
@@ -74,7 +74,7 @@ public class Signs extends JavaPlugin implements Listener {
     
     @EventHandler
     public void onSignCreate(SignChangeEvent e) {
-        if (e.getLine(0) != null && e.getLine(0).equals(ChatColor.stripColor(lk.getBrand(false)))) {
+        if (e.getBlock() != null && e.getLine(0) != null && e.getLine(0).equals(ChatColor.stripColor(lk.getBrand(false)))) {
             if (!e.getPlayer().hasPermission("LiteKits.extension.signs.create")) {
                 e.getBlock().breakNaturally();
                 e.getPlayer().sendMessage(lk.getBrand(true) + ChatColor.RED + "You need LiteKits.extension.signs.create to make a kit sign.");
